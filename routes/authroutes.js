@@ -8,5 +8,6 @@ const storage = multer.memoryStorage(); // Use memory storage for the sake of si
 const upload = multer({ storage });
 
 
-router.post('/register', upload.single('profilePhoto') ,authController.registerUser); // Use authController.create
+router.post('/register', upload.single('profilePhoto') ,authController.registerUser); 
+router.get('/user/:id',authController.getUser);
 module.exports = router;
