@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const journeySchema = new mongoose.Schema({
     userId: { type: String, required: true },
+    name: {type:String , required : true},
     fromLocation: { type: String, required: true },
     toLocation: { type: String, required: true },
     departureTime: { type: String, required: true },
