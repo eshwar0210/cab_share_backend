@@ -12,7 +12,8 @@ const upload = multer({ storage: storage });
 const path = require('path');
 
 const authRoutes = require('./routes/authroutes.js'); 
-
+const driverRoutes = require('./routes/driverroutes.js');
+const journeyRoutes = require('./routes/journeyroutes.js');
 
 dotenv.config();
 const app = express();
@@ -28,7 +29,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/auth', authRoutes);
-
+app.use('/driver',driverRoutes);
+app.use('/journey',journeyRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('MongoDB connected'))

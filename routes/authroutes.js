@@ -10,4 +10,5 @@ const upload = multer({ storage });
 
 router.post('/register', upload.single('profilePhoto') ,authController.registerUser); 
 router.get('/user/:id',authController.getUser);
+router.delete('/user/:uid/profile-picture', authController.removeProfilePicture);
 module.exports = router;
