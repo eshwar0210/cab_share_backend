@@ -71,7 +71,7 @@ exports.getUser = async (req, res) => {
 
         const id = req.params.id;
 
-        const user = await User.findOne({ uid: id });
+        const user = await User.findOne({ uid : id });
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
@@ -96,7 +96,7 @@ const deleteCurrentProfilePicture = async (imageUrl) => {
 
     try {
         await fileRef.delete(); // Delete file from Firebase Storage
-        console.log(`Profile picture deleted: ${fileName}`);
+        // console.log(`Profile picture deleted: ${fileName}`);
     } catch (error) {
         console.error('Error deleting profile picture:', error);
     }
@@ -106,6 +106,8 @@ const deleteCurrentProfilePicture = async (imageUrl) => {
 
 // Function to update profile picture
 exports.updateProfilePicture = async (req, res) => {
+
+    // console.log("api called");
     const { uid } = req.params; // Fetch UID from request params
     const { currentProfilePhotoUrl } = req.body; // Current photo URL passed from frontend
 

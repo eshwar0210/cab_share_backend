@@ -36,11 +36,11 @@ exports.getJourneysByDate = async (req, res) => {
 
 exports.getJourneysByUid = async(req,res) =>{
 
-    const {userId} = req.params;
-
+    const {userid} = req.params;
+    // console.log(userid);
     try{
 
-        const journeys = await Journey.find({uid : userId});
+        const journeys = await Journey.find({userId : userid});
         res.status(200).json(journeys);
     }
     catch(err){
